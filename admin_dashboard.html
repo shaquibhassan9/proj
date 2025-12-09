@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Green Chilli Veg Restaurant</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Admin Dashboard</h1>
+  <nav>
+    <a href="admin_dashboard.html">Dashboard</a>
+    <a href="admin_orders.html">Orders</a>
+    <a href="index.html">Go to Website</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Welcome, Admin</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>Total Orders</h3>
+      <p id="totalOrders">Loading...</p>
+    </div>
+
+    <div class="card">
+      <h3>Pending Orders</h3>
+      <p id="pendingOrders">Loading...</p>
+    </div>
+
+    <div class="card">
+      <h3>Completed Orders</h3>
+      <p id="completedOrders">Loading...</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  fetch("get_orders.php")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("totalOrders").innerText = data.length;
+
+      let pending = data.filter(o => o.status === "Pending").length;
+      let completed = data.filter(o => o.status === "Completed").length;
+
+      document.getElementById("pendingOrders").innerText = pending;
+      document.getElementById("completedOrders").innerText = completed;
+    });
+</script>
+
+</body>
+</html>

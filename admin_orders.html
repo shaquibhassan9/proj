@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Orders - Green Chilli Veg Restaurant</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<header>
+  <h1>Orders</h1>
+  <nav>
+    <a href="admin_dashboard.html">Dashboard</a>
+    <a href="admin_orders.html">Orders</a>
+    <a href="index.html">Go to Website</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Customer Orders</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Items</th>
+        <th>Total</th>
+        <th>Customer</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody id="orderTableBody"></tbody>
+  </table>
+</div>
+
+<script>
+  function loadOrders() {
+    fetch("get_orders.php")
+      .then(res => res.json())
+      .then(data => {
+        const table = document.getElementById("orderTableBody");
+        table.innerHTML = "";
+
+        data.forEach(order => {
+          table.innerHTML += `
+            <tr>
+              <td>${order.id}</td>
+              <td>${order.items}</td>
+              <td>Rs ${order.total}</td>
+              <td>${order.customer}</td>
+              <td>${order.status}</td>
+              <td>
+                <button onclick="updateStatus(${order.id})">Complete</button>
+              </td>
+            </tr>
+          `;
+        });
+      });
+  }
+
+  function updateStatus(id) {
+    fetch("update_status.php?id=" + id)
+      .then(() => loadOrders());
+  }
+
+  loadOrders();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.92); /* Slight transparency */
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.login-container h2 {
+  color: #2e7d32;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.role-selection {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.role-selection label {
+  font-size: 16px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #1b5e20;
+}
+
+.create-account {
+  margin-top: 20px;
+}
+
+.create-account a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.create-account a:hover {
+  text-decoration: underline;
+}

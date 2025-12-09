@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Green Chilli Veg Restaurant - KIET Ghaziabad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Green Chilli Veg Restaurant at KIET Ghaziabad – Serving fresh vegetarian cuisines.">
+  <meta property="og:title" content="Green Chilli Veg Restaurant - KIET Ghaziabad">
+  <meta property="og:description" content="Fresh vegetarian cuisines – Chinese, North Indian, South Indian, Italian, Desserts, Beverages & more.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Green Chilli Veg Restaurant</h1>
+
+  <div class="menu-toggle" id="menu-toggle">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="about.html">About</a>
+    <a href="#cuisines">Cuisines</a>
+    <a href="#contact">Contact</a>
+    <a href="login.html">Login</a>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+<div class="hero" id="home">
+  <h2>Welcome to Green Chilli Veg Restaurant</h2>
+  <p>Serving KIET Ghaziabad with fresh vegetarian cuisines</p>
+  <button onclick="window.location.href='order.html'">Order Now</button>
+</div>
+
+<!-- CUISINE CARDS (CLICKABLE NOW) -->
+<section id="cuisines">
+  <h2>Explore Our Cuisines</h2>
+
+  <div class="cuisines">
+
+    <a href="menu.html?category=Chinese" class="cuisine">
+      <img src="https://thumbs.dreamstime.com/b/assorted-chinese-food-set-noodles-fried-rice-dumplings-peking-duck-dim-sum-spring-rolls-famous-cuisine-dishes-74023556.jpg?w=768">
+      <h3>Chinese</h3>
+    </a>
+
+    <a href="menu.html?category=North Indian" class="cuisine">
+      <img src="https://rajscorner.com.au/wp-content/uploads/2023/12/eb310049-7277-4156-b9a3-5a8b7b317116.png">
+      <h3>North Indian</h3>
+    </a>
+
+    <a href="menu.html?category=South Indian" class="cuisine">
+      <img src="https://res.cloudinary.com/hz3gmuqw6/image/upload/c_fill,q_30,w_750/f_auto/south-indian-food-phplHtYCF">
+      <h3>South Indian</h3>
+    </a>
+
+    <a href="menu.html?category=Italian" class="cuisine">
+      <img src="https://images.squarespace-cdn.com/content/v1/5e484ab628c78d6f7e602d73/1599248222831-ZMHAFYJT9T3IXH3IVGKY/What-to-eat-in-Italy.png">
+      <h3>Italian</h3>
+    </a>
+
+    <a href="menu.html?category=Continental" class="cuisine">
+      <img src="https://hogr.app/blog/wp-content/uploads/2024/02/image-3.png">
+      <h3>Continental</h3>
+    </a>
+
+    <a href="menu.html?category=Desserts" class="cuisine">
+      <img src="https://sharmanjainsweets.com/cdn/shop/articles/Untitled_design_eb07557c-e535-4bdf-9063-8a1f1cffa58c.png?v=1751535882&width=940">
+      <h3>Desserts</h3>
+    </a>
+
+    <a href="menu.html?category=Beverages" class="cuisine">
+      <img src="https://vaya.in/careers/wp-content/uploads/2019/03/5-protein-drinks-and-beverages-to-have-post-work-out.jpg">
+      <h3>Beverages</h3>
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p style="text-align:center;">
+    📍 KIET Ghaziabad<br>
+    📞 +91-9999999999<br>
+    ✉ greenchilli@restaurant.com
+  </p>
+</section>
+
+<footer>
+  <p>© 2025 Green Chilli Veg Restaurant, KIET Ghaziabad</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav");
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+</script>
+
+</body>
+</html>

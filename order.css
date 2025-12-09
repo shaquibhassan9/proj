@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+header {
+  background: #2e7d32;
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 { margin: 0; font-size: 20px; }
+nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+nav a:hover { color: #ffeb3b; }
+
+h2 { text-align: center; margin: 20px 0; }
+
+/* Category Cards */
+.category {
+  max-width: 800px;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  background: white;
+}
+.category-header {
+  display: flex;
+  align-items: center;
+  background: #eee;
+}
+.category-header img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+}
+.category-header h3 {
+  margin: 0;
+  padding: 0 15px;
+  font-size: 1.2rem;
+  flex: 1;
+  color: #2e7d32;
+}
+.category-header span {
+  font-size: 1.5rem;
+  padding: 0 15px;
+  color: #555;
+  transition: transform 0.3s;
+}
+.category-header.active span {
+  transform: rotate(90deg);
+}
+
+/* Items inside category */
+.items {
+  display: none;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+.item button {
+  background: #ff5722;
+  color: white;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.item button:hover { background: #e64a19; }
+
+/* Cart */
+#cart {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+#cart ul {
+  list-style: none;
+  padding: 0;
+}
+#cart li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+  padding: 6px;
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+#cart button.remove {
+  background: #d32f2f;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+#cart button.remove:hover {
+  background: #b71c1c;
+}
+#checkout {
+  display: block;
+  margin: 20px auto;
+  background: #2e7d32;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#checkout:hover { background: #1b5e20; }
