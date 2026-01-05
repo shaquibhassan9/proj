@@ -1,0 +1,93 @@
+/* ===== MENU PREMIUM DARK ===== */
+
+.category-box {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #0b0b0b;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.9);
+  text-align: center;
+}
+
+.cat-image {
+  width: 260px;
+  height: 260px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 25px;
+}
+
+.items-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.item-card {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #1c1c1c, #000);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.04),
+              0 15px 35px rgba(0,0,0,0.9);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.35s;
+}
+
+.item-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 25px rgba(46,125,50,0.6);
+}
+
+.item-card h3 {
+  color: #fff;
+  font-size: 15px;
+  margin: 0;
+  text-align: center;
+}
+
+.item-card p {
+  color: #7CFF8A;
+  margin: 6px 0 10px;
+  font-size: 14px;
+}
+
+/* Quantity Controls */
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty-controls button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #2e7d32;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.qty-controls span {
+  color: white;
+  font-size: 14px;
+  min-width: 18px;
+  text-align: center;
+}
+/* .cuisine img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+}
+ */

@@ -1,32 +1,23 @@
 <?php
-// register_process.php
 session_start();
 
-// --- 1. Database config (edit if different) ---
-$DB_HOST = "localhost";
-$DB_USER = "root";
-$DB_PASS = "";           // default XAMPP
-$DB_NAME = "restaurant_db";
-
-// --- 2. Connect safely (mysqli) ---
-$conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+$conn = new mysqli("localhost", "root", "", "restaurant_db");
 if ($conn->connect_error) {
-    // Stop and show an error (for dev). In production log instead.
-    die("DB Connection failed: " . $conn->connect_error);
+    die("DB error");
 }
 
-// --- 3. Basic server-side validation ---
-$required = ['role','username','Contact','password','confirm_password'];
+// validate
+$required = ['role','username','contact','password','confirm_password'];
 foreach ($required as $field) {
-    if (!isset($_POST[$field]) || trim($_POST[$field]) === '') {
-        echo "<script>alert('Please fill all fields.'); window.location='register.html';</script>";
+    if (empty($_POST[$field])) {
+        echo "<script>alert('Fill all fields'); window.location='register.html';</script>";
         exit();
     }
 }
 
 $role = $_POST['role'];
 $username = trim($_POST['username']);
-$contact = trim($_POST['Contact']);  // matches your form name
+$contact = trim($_POST['contact']);
 $password = $_POST['password'];
 $confirm = $_POST['confirm_password'];
 
@@ -35,44 +26,26 @@ if ($password !== $confirm) {
     exit();
 }
 
-// Optional: extra validation
-if (strlen($username) > 50 || strlen($contact) > 20) {
-    echo "<script>alert('Input too long'); window.location='register.html';</script>";
-    exit();
-}
+$hashed = password_hash($password, PASSWORD_DEFAULT);
 
-// --- 4. Hash password ---
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-// --- 5. Check if username exists using prepared statement ---
+// check existing user
 $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $stmt->store_result();
+
 if ($stmt->num_rows > 0) {
-    $stmt->close();
     echo "<script>alert('Username already exists'); window.location='register.html';</script>";
     exit();
 }
 $stmt->close();
 
-// --- 6. Insert new user using prepared statement ---
-$insert = $conn->prepare("INSERT INTO users (role, username, contact, password) VALUES (?, ?, ?, ?)");
-if (!$insert) {
-    die("Prepare failed: " . $conn->error);
-}
-$insert->bind_param("ssss", $role, $username, $contact, $hashed_password);
+// insert user
+$insert = $conn->prepare(
+  "INSERT INTO users (role, username, contact, password) VALUES (?, ?, ?, ?)"
+);
+$insert->bind_param("ssss", $role, $username, $contact, $hashed);
+$insert->execute();
 
-if ($insert->execute()) {
-    $insert->close();
-    $conn->close();
-    echo "<script>alert('Registration successful. Please login.'); window.location='login.html';</script>";
-    exit();
-} else {
-    // Insert failed (show for dev). In production, log error.
-    echo "Error inserting record: " . $conn->error;
-    $insert->close();
-    $conn->close();
-    exit();
-}
-?>
+echo "<script>alert('Registration successful'); window.location='login.html';</script>";
+exit();

@@ -173,7 +173,7 @@ function checkout() {
       const msg =
         `Order Summary:\n${itemsText}\nTotal: Rs ${total}\nCustomer: ${customer}`;
             
-        const whatsappURL = "https://api.whatsapp.com/send?phone=919999999999&text=" + encodeURIComponent(msg);
+        const whatsappURL = "https://api.whatsapp.com/send?phone=8840114015&text=" + encodeURIComponent(msg);
 
       localStorage.removeItem("cart");
       window.location.href = whatsappURL;

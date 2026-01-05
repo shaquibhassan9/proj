@@ -46,10 +46,11 @@ const menuCategories = {
   },
 
   "Desserts": {
-    img: "https://sharmanjainsweets.com/cdn/shop/articles/Untitled_design_eb07557c-e535-4bdf-9063-8a1f1cffa58c.png?v=1751535882&width=940",
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
     items: [
       {name:"Gulab Jamun", price:40},
       {name:"Chocolate Brownie", price:80},
+      {name:"Ice Cream Sundae", price:70},
       {name:"Ice Cream Sundae", price:70}
     ]
   },

@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Orders - Green Chilli Veg Restaurant</title>
+
+  <!-- GLOBAL FIRST -->
+  <link rel="stylesheet" href="style.css">
+  <!-- ADMIN SECOND -->
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
 
-<header>
+<header class="admin-header">
   <h1>Orders</h1>
   <nav>
     <a href="admin_dashboard.html">Dashboard</a>
@@ -16,23 +20,27 @@
   </nav>
 </header>
 
-<div class="container">
-  <h2>Customer Orders</h2>
+<div class="admin-wrapper">
+  <div class="admin-container">
 
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Items</th>
-        <th>Total</th>
-        <th>Customer</th>
-        <th>Status</th>
-        <th>Action</th>
-      </tr>
-    </thead>
+    <h2 class="welcome">Customer Orders</h2>
 
-    <tbody id="orderTableBody"></tbody>
-  </table>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Items</th>
+          <th>Total</th>
+          <th>Customer</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody id="orderTableBody"></tbody>
+    </table>
+
+  </div>
 </div>
 
 <script>
@@ -48,11 +56,13 @@
             <tr>
               <td>${order.id}</td>
               <td>${order.items}</td>
-              <td>Rs ${order.total}</td>
+              <td>₹ ${order.total}</td>
               <td>${order.customer}</td>
               <td>${order.status}</td>
               <td>
-                <button onclick="updateStatus(${order.id})">Complete</button>
+                <button class="admin-btn" onclick="updateStatus(${order.id})">
+                  Complete
+                </button>
               </td>
             </tr>
           `;
